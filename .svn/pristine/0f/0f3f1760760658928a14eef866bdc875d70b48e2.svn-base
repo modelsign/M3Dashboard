@@ -1,0 +1,14 @@
+<template>
+  <div>浇筑温度</div>
+</template>
+
+<script>
+  export default {
+    name: 'buildTemp'
+  };
+</script>
+
+<style scoped>
+
+</style>
+

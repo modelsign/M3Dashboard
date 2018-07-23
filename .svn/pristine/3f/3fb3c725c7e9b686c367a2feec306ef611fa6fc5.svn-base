@@ -1,0 +1,14 @@
+<template>
+  <div>温控曲线</div>
+</template>
+
+<script>
+  export default {
+    name: 'tempLine'
+  };
+</script>
+
+<style scoped>
+
+</style>
+

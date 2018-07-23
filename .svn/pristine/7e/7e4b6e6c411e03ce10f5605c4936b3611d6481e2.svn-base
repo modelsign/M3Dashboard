@@ -1,0 +1,14 @@
+<template>
+  <div>出机口温度</div>
+</template>
+
+<script>
+  export default {
+    name: 'outTemp'
+  };
+</script>
+
+<style scoped>
+
+</style>
+

@@ -31,7 +31,7 @@
             <span class="value" v-text="selectedCar.target"></span>
           </div>
           <div class="info">
-            <span class="name">实时运输时长&nbsp;&nbsp;：</span>
+            <span class="name">运输时长&nbsp;&nbsp;：</span>
             <span class="value" v-text="selectedCar.time"></span>
           </div>
           <div class="info">
@@ -91,8 +91,12 @@
       this.w = rect.w;
       this.h = rect.h;
   
+      let timer = null;
       window.onresize = (e) => {
-        _this.clientWidth = window.innerWidth;
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(() => {
+          _this.clientWidth = window.innerWidth;
+        }, 100);
       };
 
       this.initSvg();
@@ -112,10 +116,12 @@
         this.svg.attr('width', rect.w)
               .attr('height', rect.h);
 
-        this.svg.select('#zoom').attr('transform', 'scale(1)');
-        this.svg.select('#drag').attr('transform', 'translate(0, 0)');
-
         this.buildBoxShow = false;
+        this.carBoxShow = false;
+      },
+
+      resetTransform() {
+        this.svg.select('#zoom').attr('transform', '');
       },
 
       getSize() {
@@ -245,8 +251,6 @@
         ch: 0, // 容器高度
         w: 0, // svg宽度
         h: 0, // svg高度
-        dx: 0,
-        dy: 0,
         clientWidth: window.innerWidth,
         carBoxShow: false,
         selectedCar: {
@@ -337,6 +341,13 @@
     height: calc(100% - 40px);
     margin-top: 20px;
     margin-left: 20px;
+    position: relative;
+
+    .reset{
+      position: absolute;
+      left: 20px;
+      top: 20px;
+    }
 
     .info-box{
       position: fixed;

@@ -1,11 +1,11 @@
 {
-  "name": "szgc-web",
+  "name": "m3-dashboard",
   "version": "3.6.0",
   "license": "MIT",
   "description": "web platform with Element UI & axios & iconfont & permission control & lint",
   "author": "Pan <panfree23@gmail.com>",
   "scripts": {
-    "dev": "webpack-dev-server --host 192.168.107.120 --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --host 0.0.0.0 --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "build": "node build/build.js",
     "build:report": "npm_config_report=true node build/build.js",
@@ -14,8 +14,9 @@
   },
   "dependencies": {
     "axios": "0.17.1",
-    "echarts": "^4.1.0",
     "d3": "^5.5.0",
+    "dhtmlx-suite": "^5.0.1",
+    "echarts": "^4.1.0",
     "element-ui": "2.3.4",
     "js-cookie": "2.2.0",
     "normalize.css": "7.0.0",
